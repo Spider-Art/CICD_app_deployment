@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: www-page-deployment-prod
+spec:
+ selector:
+   matchLabels:
+     app: www-page-prod
+ template:
+   metadata:
+     labels:
+       app: www-page-deployment
+   spec:
+     containers:
+     - name: www-page-prod
+       image: image-registry.openshift-image-registry.svc:5000/aaatest/www-page:1.0
+       resources:
+         requests:
+           memory: "32Mi"
+           cpu: "100m"
+         limits:
+           memory: "256Mi"
+           cpu: "500m"
+       ports:
+       - containerPort: 8080
