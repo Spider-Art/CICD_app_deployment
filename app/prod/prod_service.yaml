@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: aaa-application-prod-service
+  namespace: aaa-application-prod
+  labels:
+    app: aaa-application-prod
+    app.kubernetes.io/component: aaa-application-prod
+    app.kubernetes.io/instance: aaa-application-prod
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  type: ClusterIP
+  selector:
+    deployment: www-page-deployment-prod
+status:
+  loadBalancer: {}
