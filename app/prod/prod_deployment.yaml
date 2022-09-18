@@ -5,11 +5,11 @@ metadata:
 spec:
  selector:
    matchLabels:
-     app: www-page-prod
+     deployment: www-page-deployment-prod
  template:
    metadata:
      labels:
-       app: www-page-deployment
+       deployment: www-page-deployment-prod
    spec:
      containers:
      - name: www-page-prod
