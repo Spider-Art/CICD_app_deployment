@@ -1,25 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: www-page-deployment-prod
+  name: www-page-deployment-prod
+  labels: 
+    app: aaa-application-prod
+    app.kubernetes.io/component: aaa-application-prod
+    app.kubernetes.io/instance: aaa-application-prod
 spec:
- selector:
-   matchLabels:
-     deployment: www-page-deployment-prod
- template:
-   metadata:
-     labels:
-       deployment: www-page-deployment-prod
-   spec:
-     containers:
-     - name: www-page-prod
-       image: image-registry.openshift-image-registry.svc:5000/aaatest/www-page:1.0
-       resources:
-         requests:
-           memory: "32Mi"
-           cpu: "100m"
-         limits:
-           memory: "256Mi"
-           cpu: "500m"
-       ports:
-       - containerPort: 8080
+  selector:
+    matchLabels:
+      deployment: www-page-deployment-prod
+  template:
+    metadata:
+      labels:
+        deployment: www-page-deployment-prod
+    spec:
+      containers:
+      - name: www-page-prod
+        image: image-registry.openshift-image-registry.svc:5000/aaatest/www-page:1.0
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
