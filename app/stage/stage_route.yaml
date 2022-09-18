@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: www-page-stage-route
+  labels:
+    app: aaa-application-stage
+    app.kubernetes.io/component: aaa-application-stage
+    app.kubernetes.io/instance: aaa-application-stage
+spec:
+  to:  
+    kind: Service
+    name: aaa-application-stage-service
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None

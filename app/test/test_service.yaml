@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: aaa-application-test-service
+  namespace: aaa-application-test
+  labels:
+    app: aaa-application-test
+    app.kubernetes.io/component: aaa-application-test
+    app.kubernetes.io/instance: aaa-application-test
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  type: ClusterIP
+  selector:
+    deployment: www-page-deployment-test
+status:
+  loadBalancer: {}
