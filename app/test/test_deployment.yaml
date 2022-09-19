@@ -13,7 +13,7 @@ spec:
    spec:
      containers:
      - name: www-page-test
-       image: image-registry.openshift-image-registry.svc:5000/aaatest/www-page:latest
+       image: image-registry.openshift-image-registry.svc:5000/aaatest/www-page:1.0
        resources:
          requests:
            memory: "32Mi"
