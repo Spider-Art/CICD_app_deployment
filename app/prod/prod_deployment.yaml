@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: www-page-prod
-        image: image-registry.openshift-image-registry.svc:5000/aaatest/www-page:1.0
+        image: image-registry.openshift-image-registry.svc:5000/aaa-application-pipeline/www-page:1.0
         resources:
           requests:
             memory: "32Mi"
